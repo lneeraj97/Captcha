@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Captcha</title>
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+        <style type="text/css">
+            div {
+                width:300px;
+                height: 200px;
+                margin:10% 10% 10% 36%;
+                border-radius: 2%;
+            }
+            #capinput {
+                margin:0 50px 0 68px;
+                text-align: center;
+                border-radius: 2px 10px;
+                font-family:'Baloo Bhaina', cursive;
+                box-shadow: 5px 5px 5px 2px black;
+                font-size: large;
+            }
+            label {
+                margin:0 50px 0 68px;
+                text-align: center;
+                border-radius: 2px 10px;
+                font-size: small;
+                font-family:'Baloo Bhaina', cursive;
+            }
+            #captcha {
+                height: 50px;
+                margin: 0 50px 5px 68px;
+                text-align: center;
+                border-radius: 5px 20px;
+                font-family:'Baloo Bhaina', cursive;
+                font-size: large;
+                text-decoration: line-through;
+                box-shadow: 5px 5px 5px 2px black;
+            }
+            #Submit {
+                margin: 0 5px auto 68px;
+                border-radius: 2px 15px;
+                border:none;
+                background-color: green;
+                text-decoration: none;
+                display: inline-block;
+                color: white;
+                padding: 5px 15px;
+                font-family:'Baloo Bhaina', cursive;
+                font-size: large;
+                box-shadow: 5px 5px 5px 2px black;
+            }
+            #Submit:hover {
+                background-color: white;
+                color:green;
+            }
+            #Refresh {
+                border-radius: 2px 15px;
+                border:none;
+                background-color: #008CBA;
+                text-decoration: none;
+                display: inline-block;
+                color: white;
+                padding: 5px 15px;
+                font-family:'Baloo Bhaina', cursive;
+                font-size: large;
+                margin: 0 auto auto 20px;
+                box-shadow: 5px 5px 5px 2px black;
+            }
+            #Refresh:hover {
+                background-color: white;
+                color: blue;
+            }
+            body {
+                background-image: url("img5.jpg");
+                color: white;
+                font-family:'Baloo Bhaina', cursive;
+                font-size: 15px;
+              }
+            h1 {
+                margin: 6% 15% 0 38.5%;
+                font-size:40px;
+                text-shadow: 7px 7px 6px black;
+            }
+        </style>
+
+
+
+    </head>
+
+    <body onload="generateCaptcha()">
+        
+        <h1>Try this Captcha</h1>
+
+        <script>
+            var code;
+            function generateCaptcha() {
+
+                var a = Math.ceil((Math.random()) * 9);
+                var b = Math.ceil((Math.random()) * 9);
+                var c = Math.ceil((Math.random()) * 9);
+                var d = Math.ceil((Math.random()) * 9);
+                var e = Math.ceil((Math.random()) * 9);
+                var f = Math.ceil((Math.random()) * 9);
+                code = a.toString() + b.toString() + c.toString() + d.toString() + e.toString() + f.toString();
+                document.getElementById('captcha').value = code;
+                document.getElementById('capinput').value = '';
+
+            }
+
+            function evaluateCaptcha() {
+                var ans = document.getElementById('captcha').value;
+                var userans = document.getElementById('capinput').value;
+                if (userans == ans) alert("You got it right");
+                else alert("You got it wrong");
+
+            }
+        </script>
+        <div>
+        <form>
+            <input type="text" id="captcha" disabled />
+            <br>
+            <br>
+            <label for="capinput">Enter the above Captcha:</label>
+            <br>
+            <input type="text" name="capinput" id="capinput" autocomplete="off">
+            <br>
+            <br>
+
+            <button id="Submit" onclick="evaluateCaptcha()" value="Submit">Submit</button>
+
+            <button id="Refresh" onclick="generateCaptcha()" value="Refresh">Refresh</button>
+        </form>
+        
+        </div>
+
+    </body>
+
+</html>
