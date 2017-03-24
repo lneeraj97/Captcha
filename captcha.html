@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Captcha</title>
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+        <script src="captcha.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+
+   <body onload="generateCaptcha()">
+        
+  		<h1>Try this Captcha</h1>
+
+       <div>
+        <form>
+            <input type="text" id="captcha" disabled />
+            <br>
+            <br>
+            <label for="capinput">Enter the above Captcha:</label>
+            <br>
+            <input type="text" name="capinput" id="capinput" autocomplete="off">
+            <br>
+            <br>
+
+            <button id="Submit" onclick="evaluateCaptcha()" value="Submit">Submit</button>
+
+            <button id="Refresh" onclick="generateCaptcha()" value="Refresh">Refresh</button>
+       </form>
+      </div>
+    </body>
+</html>
